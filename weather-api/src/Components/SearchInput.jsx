@@ -67,16 +67,18 @@ const SearchInput = ({ sendDataToParent, sendUnitToParent }) => {
           onChange={(e) => sendData(e.target.value)}
           className="text-xl font-light p-2 w-full shadow-xl shadow-gray-400 rounded-xl focus:outline-none capitalize placeholder:lowercase"
         />
-        <FaSearch
-          size={25}
-          onClick={handleSearchClick}
-          className="cursor-pointer transition ease-out hover:scale-125"
-        />
-        <SlLocationPin
-          size={25}
-          onClick={handleLocationClick}
-          className="cursor-pointer transition ease-out hover:scale-125"
-        />
+        <div className="hidden md:flex flex-row items-center justify-center space-x-4">
+          <FaSearch
+            size={25}
+            onClick={handleSearchClick}
+            className="cursor-pointer transition ease-out hover:scale-125 "
+          />
+          <SlLocationPin
+            size={25}
+            onClick={handleLocationClick}
+            className="cursor-pointer transition ease-out hover:scale-125 "
+          />
+        </div>
         <div className="flex flex-row w-1/4 items-center justify-center">
           <button
             className="text-xl font-semibold"

@@ -7,13 +7,13 @@ const TimeandLocation = ({ location }) => {
   return (
     <>
       <div className="flex items-center justify-center my-6">
-        <p className="text-xl font-normal ">
+        <p className="md:text-xl font-normal ">
           {DateTimeConverter(location.localtime)}
         </p>
       </div>
 
       <div className="flex items-center justify-center my-3">
-        <p className="text-3xl font-medium">
+        <p className="text-2xl font-medium">
           {location.name}, {location.region}, {location.country}
         </p>
       </div>

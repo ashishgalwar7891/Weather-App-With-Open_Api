@@ -54,10 +54,11 @@ const setUnit = (unit) => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-lg mt-4 py-8 px-16 shadow-xl bg-gradient-to-r from-sky-300  to-blue-300 shadow-gray-400">
-      <h1 className="text-5xl font-extrabold flex justify-center mb-4">
+    <div className="mx-auto max-w-screen-lg mt-4 py-8 px-auto shadow-xl bg-gradient-to-r from-sky-300  to-blue-300 shadow-gray-400">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-4">
         SkyView Forecast Tracker
       </h1>
+
       <hr className="my-4" />
 
       <SearchInput sendDataToParent={searchedCity} sendUnitToParent={setUnit} />

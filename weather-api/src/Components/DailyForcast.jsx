@@ -5,14 +5,14 @@ const DailyForcast = ({ title, forecast, current, unit }) => {
   if (forecast === undefined) return ;
   if (current === undefined) return ;
   return (
-    <div>
-      <div className="flex items-center justify-start mt-6">
+    <>
+      <div className="flex items-center justify-start mt-6 ml-8">
         <p className="font-bold text-lg uppercase">{title}</p>
       </div>
       <hr className="my-2" />
 
-      <div className="flex flex-row items-center justify-between ">
-        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2 ">
+      <div className="flex flex-row flex-wrap items-center justify-around ">
+        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2 m-4">
           <p className="font-medium text-md">
             {DateConverter(forecast.forecastday[0].date)}
           </p>
@@ -33,7 +33,7 @@ const DailyForcast = ({ title, forecast, current, unit }) => {
             WindSpeed :- {forecast.forecastday[0].day.maxwind_kph} km/h
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2">
+        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2 m-4">
           <p className="font-medium text-md">
             {DateConverter(forecast.forecastday[1].date)}
           </p>
@@ -54,7 +54,7 @@ const DailyForcast = ({ title, forecast, current, unit }) => {
             WindSpeed :- {forecast.forecastday[1].day.maxwind_kph} km/h
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2">
+        <div className="flex flex-col items-center justify-center bg-slate-300 rounded-md p-2 m-4">
           <p className="font-medium text-md">
             {DateConverter(forecast.forecastday[2].date)}
           </p>
@@ -76,7 +76,7 @@ const DailyForcast = ({ title, forecast, current, unit }) => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

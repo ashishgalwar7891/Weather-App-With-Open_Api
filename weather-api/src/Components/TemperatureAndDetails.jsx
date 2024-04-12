@@ -17,13 +17,19 @@ function TemperatureAndDetails({ forecast, current, unit }) {
       </div>
 
       <div className="flex flex-row items-center justify-around py-3">
-        <img src={current.condition.icon} className="w-20" />
-        <p className="text-2xl">{unit === "metric" ? `${current.temp_c} °C` : `${current.temp_f} °F`}</p>
+        <img src={current.condition.icon} className="sm:w-16 md:w-20 lg:w-24" />
+        <p className="sm:text-xl md:text-2xl lg:text-3xl font-normal">
+          {unit === "metric" ? `${current.temp_c} °C` : `${current.temp_f} °F`}
+        </p>
         <div className="flex flex-col space-y-2">
           <div className="flex font-medium text-sm items-center justify-left">
             <FaTemperatureHigh size={18} className="mr-1" />
             Real fell :
-            <span className="font-medium ml-1">{unit === "metric" ? `${current.temp_c} °C` : `${current.temp_f} °F`}</span>
+            <span className="font-medium ml-1">
+              {unit === "metric"
+                ? `${current.temp_c} °C`
+                : `${current.temp_f} °F`}
+            </span>
           </div>
           <div className="flex font-medium text-sm items-center justify-left">
             <FaDroplet size={18} className="mr-1" />
@@ -38,26 +44,50 @@ function TemperatureAndDetails({ forecast, current, unit }) {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-center py-3 text-sm space-x-2">
-        <IoSunny size={25} />
-        <p className="font-medium">
-          Rise : <span className="font-medium ml-1">{forecast.forecastday[0].astro.sunrise}</span>
-        </p>
-        <p className="font-medium">|</p>
-        <TbSunset2 size={25} />
-        <p className="font-medium">
-          Set : <span className="font-medium ml-1">{forecast.forecastday[0].astro.sunset}</span>
-        </p>
-        <p className="font-medium">|</p>
-        <FaArrowUpLong size={18} />
-        <p className="font-medium">
-          High : <span className="font-medium ml-1">{unit === "metric" ? `${forecast.forecastday[0].day.maxtemp_c} °C` : `${forecast.forecastday[0].day.maxtemp_f} °F`}</span>
-        </p>
-        <p className="font-medium">|</p>
-        <FaArrowDownLong size={18} />
-        <p className="font-medium">
-          Low : <span className="font-medium ml-1">{unit === "metric" ? `${forecast.forecastday[0].day.mintemp_c} °C` : `${forecast.forecastday[0].day.mintemp_f} °F`}</span>
-        </p>
+      <div className="flex flex-row flex-wrap items-center justify-center py-3 text-sm space-x-2">
+        <div className="flex items-center">
+          <IoSunny size={25} />
+          <p className="font-medium">
+            Rise :{" "}
+            <span className="font-medium ml-1">
+              {forecast.forecastday[0].astro.sunrise}{" "}
+            </span>
+          </p>
+          <p className="font-medium text-2xl"> | </p>
+        </div>
+        <div className="flex items-center">
+          <TbSunset2 size={25} />
+          <p className="font-medium">
+            Set :{" "}
+            <span className="font-medium ml-1">
+              {forecast.forecastday[0].astro.sunset}
+            </span>
+          </p>{" "}
+          <p className="font-medium text-2xl"> | </p>
+        </div>
+        <div className="flex items-center">
+          <FaArrowUpLong size={18} />
+          <p className="font-medium">
+            High :{" "}
+            <span className="font-medium ml-1">
+              {unit === "metric"
+                ? `${forecast.forecastday[0].day.maxtemp_c} °C`
+                : `${forecast.forecastday[0].day.maxtemp_f} °F`}
+            </span>{" "}
+          </p>
+          <p className="font-medium text-2xl"> | </p>
+        </div>
+        <div className="flex items-center">
+          <FaArrowDownLong size={18} />
+          <p className="font-medium">
+            Low :{" "}
+            <span className="font-medium ml-1">
+              {unit === "metric"
+                ? `${forecast.forecastday[0].day.mintemp_c} °C`
+                : `${forecast.forecastday[0].day.mintemp_f} °F`}
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

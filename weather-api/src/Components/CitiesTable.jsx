@@ -69,21 +69,24 @@ const CitiesTable = ({ sendCityNameToParent }) => {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-lg mt-4 py-5 px-32 h-fit shadow-xl shadow-gray-400">
+      <div className="mx-auto  mt-4 py-5 px-auto h-fit w-fit shadow-xl shadow-gray-400">
+        <h1 className="text-2xl text-center font-bold mb-4">
+          All Cities In A Table{" "}
+        </h1>
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-between mb-4 mr-2">
             <input
               type="text"
-              className="block w-full px-4 py-2 mb-4 mr-8 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+              className="block px-4 py-2 mb-4 mr-8 sm:w-auto md:w-full border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
               placeholder="Search cities..."
               value={searchTerm}
               onChange={handleSearch}
             />
 
-            <div className="relative inline-block text-left mb-4">
+            <div className=" inline-block text-left mb-4">
               <button
                 type="button"
-                className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+                className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
                 onClick={toggleDropdown}
               >
                 Sorting
@@ -140,7 +143,7 @@ const CitiesTable = ({ sendCityNameToParent }) => {
             </div>
           </div>
 
-          <table className="w-full border-collapse">
+          <table className="w-full sm:w-auto border-collapse">
             <thead>
               <tr>
                 <th className="border px-4 py-2">S.No.</th>
@@ -192,9 +195,10 @@ const CitiesTable = ({ sendCityNameToParent }) => {
       </div>
 
       <div className="text-center text-red-700 font-bold p-24 m-auto">
-        NoTE :- The Open API that you provided for the CityTable only gives details for
-        a random selection of 100 cities. So, if we want more cities, we need to subscribe and pay some amount.
-        So, As of Now we are not able to fetch more than 100 cities.
+        NoTE :- The Open API that you provided for the CityTable only gives
+        details for a random selection of 100 cities. So, if we want more
+        cities, we need to subscribe and pay some amount. So, As of Now we are
+        not able to fetch more than 100 cities.
       </div>
     </>
   );
